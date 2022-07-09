@@ -1,0 +1,94 @@
+//YWROBOT
+//Compatible with the Arduino IDE 1.0
+//Library version:1.1
+#include <Wire.h> 
+#include <LiquidCrystal_I2C.h>
+
+LiquidCrystal_I2C lcd(0x27,16,2);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+
+int x = 0;
+void setup()
+{
+  lcd.init();                      // initialize the lcd   // Print a message to the LCD.
+  lcd.backlight();
+  lcd.setCursor(0,0);
+  lcd.print("Loading");
+  
+  lcd.setCursor(0,1);
+  while (x<15)
+  {
+    x = x + 1;
+    lcd.print(">");
+    delay(100);
+  }
+  lcd.print("*");
+  lcd.setCursor(0,16);
+  x = 16;
+  while (x>0)
+  {
+    x = x - 1;
+    lcd.print(" ");
+    delay(100);
+  }
+  lcd.setCursor(8,0);
+  lcd.print("OVER");
+  delay(1000);
+  lcd.setCursor(0,0);
+  x = 0;
+   while (x<14)
+  {
+    x = x + 1;
+    lcd.print(" ");
+    delay(100);
+  }
+  lcd.setCursor(2,0);
+  lcd.print("Welcome to the");
+  lcd.setCursor(3,1);
+  lcd.print("CLUB, BUDDY!");
+  
+}
+
+
+void loop()
+{
+}
+
+
+
+//The second task
+int s = 90;
+void setup()
+{
+  Serial.begin(9600);
+  Serial.println(s);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+}
+
+
+void loop()
+{
+  String message = Serial.readStringUntil('\n');
+  if (message != "")
+  {
+    // received a new message
+    s = message.toInt();
+    Serial.println(s);
+  }
+
+
+  digitalWrite(8, HIGH);                //Происходит включение поочерёдно
+  delay(s);
+  digitalWrite(8, LOW);
+  delay(s);
+  digitalWrite(9, HIGH);
+  delay(s);
+  digitalWrite(9, LOW);
+  delay(s);
+  digitalWrite(10, HIGH);
+  delay(s);
+  digitalWrite(10, LOW);
+  delay(s);
+}
