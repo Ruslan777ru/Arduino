@@ -1,0 +1,43 @@
+int s = 90;
+void setup()
+{
+  Serial.begin(9600);               voltage
+  Serial.println(s);
+  pinMode(8, OUTPUT);               select pim
+  pinMode(9, OUTPUT);
+  pinMode(10, OUTPUT);
+}
+
+
+void loop()
+{
+  String message = Serial.readStringUntil('n');    print the massege
+  if (message != )
+  {
+     received a new message
+    s = message.toInt();
+    Serial.println(s);
+  }
+
+
+  digitalWrite(8, HIGH);                Происходит включение поочерёдно
+  delay(s);
+  digitalWrite(8, LOW);
+  delay(s);
+  digitalWrite(9, HIGH);
+  delay(s);
+  digitalWrite(9, LOW);
+  delay(s);
+  digitalWrite(10, HIGH);
+  delay(s);
+  digitalWrite(10, LOW);
+  delay(s);
+  digitalWrite(9, HIGH);                Происходит включение поочерёдно
+  delay(s);
+  digitalWrite(9, LOW);
+  delay(s);
+   digitalWrite(8, HIGH);
+  delay(s);
+  digitalWrite(8, LOW);
+ 
+}
