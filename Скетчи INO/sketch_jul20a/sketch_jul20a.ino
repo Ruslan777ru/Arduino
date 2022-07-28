@@ -1,11 +1,9 @@
-/* _______________________ЗДЕСЬ НУЖНА ДОРАБОТКА___________________________*/
-
-#define hotLED  6
-#define coolLED 4
-#define coldLED 2
+#define hotLED  2
+#define coolLED 6
+#define coldLED 4
 #define delel   200
 
-int blinks = 0;
+using namespace std;
 
 void setup()
 {
@@ -25,7 +23,8 @@ class Termo
   float coldTemp = 20;
   float sensor = 0;
   float fahrenheit = 0;
-  
+
+  /*
   Termo(float voltage, float celsius, float hotTemp, float coldTemp, float sensor, float fahrenheit) 
         {
           this->voltage = voltage;
@@ -35,6 +34,7 @@ class Termo
           this->sensor = sensor;
           this->fahrenheit = fahrenheit;
         }
+   */
 };
 
 
@@ -43,9 +43,8 @@ class checkTemp : public Termo
 {
   public:
 
-  checkTemp(float voltage, float celsius, float hotTemp, float coldTemp, float sensor, float fahrenheit): Termo(voltage, celsius, hotTemp, coldTemp, sensor, fahrenheit)
-  {
-  }
+  //checkTemp(float voltage, float celsius, float hotTemp, float coldTemp, float sensor, float fahrenheit): Termo(voltage, celsius, hotTemp, coldTemp, sensor, fahrenheit){}
+  
   
     void check()
     {
@@ -83,19 +82,35 @@ class checkTemp : public Termo
         }
     }
     
-    void displayTemps()
+    void display()
     {
-      Serial.print("Temprerature is");
-      Serial.print(celsius, 2);
-      Serial.print(" deg. C / ");
-      Serial.print(fahrenheit, 2);
-      Serial.println (" deg. F ");
+       Serial.print("Temprerature is ");
+       Serial.print(celsius, 2);
+       Serial.print(" deg. C / ");
+       Serial.print(fahrenheit, 2);
+       Serial.println (" deg. F ");
     }
 };
+    
+
+
 
 void loop()
 {
-  //displayTemps();
-  checkTemp();
-  delay(2000); 
+    /*class Termo
+    {
+     display();
+      check();      это бред здесь написан. Оставил как напоминание, что так писать тупо :D
+      };
+ 
+      delay(2000); 
+      */
+
+
+  checkTemp Indication;
+
+  Indication.check();
+  Indication.display();
+
+      
 }
