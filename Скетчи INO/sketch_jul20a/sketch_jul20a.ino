@@ -29,7 +29,7 @@ class Termo
         {
           this->voltage = voltage;
           this->celsius = celsius;
-          this->hotTemp = hotTemp;
+          this->hotTemp = hotTemp;                                          Вдруг кто-то захочет поэкспериментировать, поэтому вот
           this->coldTemp = coldTemp;
           this->sensor = sensor;
           this->fahrenheit = fahrenheit;
