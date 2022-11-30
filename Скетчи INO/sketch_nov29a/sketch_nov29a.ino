@@ -43,7 +43,6 @@ void button1(int &flag)
       digitalWrite(led4, HIGH);
       delay(1000);
       digitalWrite(led5, HIGH);
-      delay(3000);
       btn_clicked = millis();  //производится отсчёт времени
     }
 
@@ -59,7 +58,6 @@ void button1(int &flag)
        digitalWrite(led4, LOW);
        delay(1000);
        digitalWrite(led5, LOW);
-       //delay(3000);
      }
   
     if(digitalRead(pin_button2) == false && flag == 2 && millis() - btn_clicked >= 10000)
@@ -91,7 +89,6 @@ void button2(int &flag)
       digitalWrite(led2, HIGH);
       delay(1000);
       digitalWrite(led1,HIGH);
-      delay(3000);
       btn_clicked = millis();
     }
 
