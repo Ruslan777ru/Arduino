@@ -60,8 +60,8 @@ void button1(int &flag)     //создаём функцию для первой 
        digitalWrite(led5, LOW);
      }
   
-    if(digitalRead(pin_button2) == false && flag == 2 && millis() - btn_clicked >= 10000)
-    {
+    if(digitalRead(pin_button2) == false && flag == 2 && millis() - btn_clicked >= 10000) //осуществляем цикл, при котором при нажатой кнопке 1 кнопка 2 не активирована
+    {                                                                                     //и ставим время ожидания до 10 секунд включительно
       flag = 0;               //сбрасываем всё до начального
       btn_clicked = 0;        //состояния
       digitalWrite(led1, LOW);
