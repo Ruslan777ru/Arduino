@@ -1,5 +1,5 @@
-#define led1 7
-#define led2 8
+#define led1 7       //подключаем наши заголовки
+#define led2 8       //для светодиодов
 #define led3 9
 #define led4 10
 #define led5 11
@@ -14,13 +14,13 @@ void setup() {
   
   Serial.begin(9600);
   
-  pinMode(led1, OUTPUT);
+  pinMode(led1, OUTPUT);  //подключаем выходы наших светодиодов к пинам
   pinMode(led2, OUTPUT);
   pinMode(led3, OUTPUT);
   pinMode(led4, OUTPUT);
   pinMode(led5, OUTPUT);
   
-  digitalWrite(led1, LOW);
+  digitalWrite(led1, LOW); //даём команду, что при включении они все у нас будут выключены
   digitalWrite(led2, LOW);
   digitalWrite(led3, LOW);
   digitalWrite(led4, LOW);
@@ -28,13 +28,13 @@ void setup() {
 }
 
 
-void button1(int &flag) 
+void button1(int &flag)     //создаём функцию для первой кнопки и иницируем в ней наш флажок 
   
 {
-    if (digitalRead(pin_button1) == true && flag == 0)
+    if (digitalRead(pin_button1) == true && flag == 0)  //проверяем условие нажатия на нашу кнопку 1
     {
-      flag = 2;
-      digitalWrite(led1, HIGH);
+      flag = 2;                 //даём нашему флажку значение 2, которое свяжет наши действия с кнопкой 2 при включенной кнопке 1
+      digitalWrite(led1, HIGH); //начинаем включать наши светодиоды с интервалом в 1 секунду
       delay(1000);
       digitalWrite(led2, HIGH);
       delay(1000);
@@ -43,12 +43,12 @@ void button1(int &flag)
       digitalWrite(led4, HIGH);
       delay(1000);
       digitalWrite(led5, HIGH);
-      btn_clicked = millis();  //производится отсчёт времени
+      btn_clicked = millis();  //производится отсчёт времени 
     }
 
      if(digitalRead(pin_button2) == true && flag == 2)
      {
-       flag = 0;
+       flag = 0;                  //возвращаем наш флажок в начальное состояние
        digitalWrite(led1, LOW);
        delay(1000);
        digitalWrite(led2, LOW);
@@ -73,7 +73,7 @@ void button1(int &flag)
 }
 
 
-void button2(int &flag)
+void button2(int &flag)    //по аналогии повторяем все те же действия, что и с кнопкой 1
 
 {
   if (digitalRead(pin_button2) == true && flag == 0)
@@ -123,6 +123,6 @@ void button2(int &flag)
 
 void loop()
 {   
-  button1(flag);    
+  button1(flag);    //готовим наши функции к работе, иницируя в них наш флажок
   button2(flag);
 }
