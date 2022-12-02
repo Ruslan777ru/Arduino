@@ -4,8 +4,8 @@
 #define led4 10
 #define led5 11
 
-int  pin_button1 = 2;  //подключаем наши кнопки к пинам
-int  pin_button2 = 4;
+const int  pin_button1 = 2;  //подключаем наши кнопки к пинам
+const int  pin_button2 = 4;
 int flag = 0;         //создаём флажок для определения состояний наших кнопок
 
 long btn_clicked = 0; //задаём переменную для функции millis()
